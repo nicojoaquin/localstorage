@@ -29,6 +29,9 @@ const Agregar = ({products, setProducts}) => {
   const onAdd = () => {
     addProducts(value)
     setSuccess(true)
+    setTimeout(() => {
+      setSuccess(false)
+    }, 1000);
   } 
   
   const handleSubmit = e => {
