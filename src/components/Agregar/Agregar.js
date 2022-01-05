@@ -52,7 +52,7 @@ const Agregar = ({products, setProducts}) => {
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label className="form-label">Nombre del producto</label>
-                    <input type="text" className="form-control" name='name' value={name} onChange={handleInput} />
+                    <input type="text" pattern="[a-zA-Z]*" className="form-control" name='name' value={name} onChange={handleInput} />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Cantidad</label>
