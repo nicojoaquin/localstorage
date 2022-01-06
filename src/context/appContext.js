@@ -4,8 +4,7 @@ export const appContext = createContext(null);
 
 const AppContextProvider = ({children}) => {
 
-  const productsStorage = JSON.parse(localStorage.getItem('products')); 
-  const [products, setProducts] = useState(productsStorage ? productsStorage : []);
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) ?? []);
 
   useEffect(() => {
     localStorage.setItem('products', JSON.stringify(products));
