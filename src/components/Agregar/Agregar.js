@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { appContext } from '../../context/appContext'
 import './Agregar.css'
 
-const Agregar = ({products, setProducts}) => {
+const Agregar = () => {
+
+  const {addProducts} = useContext(appContext)
 
   const initialState = {
     name: '',
@@ -20,10 +23,6 @@ const Agregar = ({products, setProducts}) => {
       ...value,
       [e.target.name]: e.target.value
     })
-  }
-  
-  const addProducts = product => {
-    setProducts([{id: new Date().getTime(), ...product}, ...products])
   }
 
   const onAdd = () => {
@@ -55,7 +54,7 @@ const Agregar = ({products, setProducts}) => {
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label className="form-label">Nombre del producto</label>
-                    <input type="text" pattern="[a-zA-Z]*" className="form-control" name='name' value={name} onChange={handleInput} />
+                    <input type="text" className="form-control" name='name' value={name} onChange={handleInput} />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Cantidad</label>

@@ -1,14 +1,12 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { appContext } from '../../context/appContext';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './Productos.css'
 
-const Agregar = ({products, setProducts}) => {
+const Agregar = () => {
 
-    const handleDelete = id => {
-      setProducts(products.filter(product => product.id !== id));
-    }
-
-    const handleDeleteAll = () => setProducts([]);
+    const {products, handleDeleteAll, handleDelete } = useContext(appContext);
 
     const productsTotal = products.reduce((price, product) => price + product.price * product.quantity, 0)
 
